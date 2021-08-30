@@ -2,20 +2,23 @@
 using CreditService.WebApi.Controllers;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using Xunit;
 
 namespace CreditService.Tests.IntegrationTests
 {
-    public class ControllerTests : IClassFixture<TestableServices>
+    public class ControllerTests : IClassFixture<TestableServices>, IDisposable
     {
         private readonly IServiceScope _testScope;
         private readonly CreditDecisionController _controller;
 
         public ControllerTests(TestableServices testableServices)
         {
-           _testScope = testableServices.Provider.CreateScope();
-           _controller = _testScope.ServiceProvider.GetRequiredService<CreditDecisionController>();
+            _testScope = testableServices.Provider.CreateScope();
+            _controller = _testScope.ServiceProvider.GetRequiredService<CreditDecisionController>();
         }
+
+        public void Dispose() => _testScope.Dispose();
 
         [Theory]
         [InlineData(2000, 0.3)]
@@ -23,7 +26,8 @@ namespace CreditService.Tests.IntegrationTests
         [InlineData(30000, 0.4)]
         [InlineData(50000, 0.5)]
         [InlineData(69000, 0.6)]
-        public async void Should_AcceptCredit_InTheValidRange(int amount, float interest) {
+        public async void Should_AcceptCredit_InTheValidRange(int amount, float interest)
+        {
             var request = new ApplyForCreditRequest();
             request.CreditAmount = amount;
             request.RepaymentTerm = 1;
@@ -39,7 +43,8 @@ namespace CreditService.Tests.IntegrationTests
         [Theory]
         [InlineData(1000, 100)]
         [InlineData(69001, 1)]
-        public async void Should_RejectCredit_InTheInvalidRange(int amount, int preexistingAmount) {
+        public async void Should_RejectCredit_InTheInvalidRange(int amount, int preexistingAmount)
+        {
             var request = new ApplyForCreditRequest();
             request.CreditAmount = amount;
             request.RepaymentTerm = 1;
