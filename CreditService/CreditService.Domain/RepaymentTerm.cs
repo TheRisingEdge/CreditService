@@ -13,9 +13,9 @@ namespace CreditService.Domain
 
         public static Result<RepaymentTerm> TryCreate(int months)
         {
-            return Result.SuccessIf(months > 0,
-                new RepaymentTerm(months),
-                "Repayment in months must be positive");
+            return Result.Success(months)
+                .Ensure(m => m > 0, "Repayment in months must be positive")
+                .Map(m => new RepaymentTerm(m));
         }
     }
 }

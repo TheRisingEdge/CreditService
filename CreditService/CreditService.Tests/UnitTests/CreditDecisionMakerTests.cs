@@ -6,6 +6,13 @@ namespace CreditService.Tests
 {
     public class CreditDecisionMakerTests
     {
+        private readonly CreditDecisionMaker _decisionMaker;
+
+        public CreditDecisionMakerTests()
+        {
+            _decisionMaker = new CreditDecisionMaker();
+        }
+
         [Theory]
         [InlineData(500, false)]
         [InlineData(1000, false)]
@@ -19,8 +26,7 @@ namespace CreditService.Tests
         {
             var decisionRequest = CreateDecisionRequest(amount, 1, 0);
 
-            var decisionMaker = new CreditDecisionMaker();
-            var decision = decisionMaker.MakeDecisionFor(decisionRequest);
+            var decision = _decisionMaker.MakeDecisionFor(decisionRequest);
 
             decision.IsSuccess.Should().Be(okOrNot);
         }
@@ -38,8 +44,7 @@ namespace CreditService.Tests
         {
             var decisionRequest = CreateDecisionRequest(amount, 1, existingDebt);
 
-            var decisionMaker = new CreditDecisionMaker();
-            var decision = decisionMaker.MakeDecisionFor(decisionRequest);
+            var decision = _decisionMaker.MakeDecisionFor(decisionRequest);
 
             decision.InterestRate.Value.Should().Be(rate);
         }
