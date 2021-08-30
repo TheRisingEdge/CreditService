@@ -33,14 +33,14 @@ namespace CreditService.Tests.UnitTests
         }
 
         [Theory]
-        [InlineData(2000, 300, 0.3f)]
-        [InlineData(19000, 100, 0.3f)]
-        [InlineData(20000, 100, 0.4f)]
-        [InlineData(20000, 1000, 0.4f)]
-        [InlineData(40000, 0, 0.5f)]
-        [InlineData(40000, 1500, 0.5f)]
-        [InlineData(59000, 1500, 0.6f)]
-        [InlineData(59000, 3000, 0.6f)]
+        [InlineData(2000, 300, .03f)]
+        [InlineData(19000, 100, .03f)]
+        [InlineData(20000, 100, .04f)]
+        [InlineData(20000, 1000, .04f)]
+        [InlineData(40000, 0, .05f)]
+        [InlineData(40000, 1500, .05f)]
+        [InlineData(59000, 1500, .06f)]
+        [InlineData(59000, 3000, .06f)]
         public void Should_ComputeRate(int amount, int existingDebt, float rate)
         {
             var decisionRequest = CreateDecisionRequest(amount, 1, existingDebt);

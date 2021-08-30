@@ -16,10 +16,10 @@
         {
             var rate = totalFutureDebt.Value switch
             {
-                (< 20000) => .3f,
-                (>= 20000) and (< 40000) => .4f,
-                (>= 40000) and (< 60000) => .5f,
-                (>= 60000) => .6f,
+                (< 20000) => .03f,
+                (>= 20000) and (< 40000) => .04f,
+                (>= 40000) and (< 60000) => .05f,
+                (>= 60000) => .06f,
             };
 
             return InterestRate.TryCreate(rate).Value;

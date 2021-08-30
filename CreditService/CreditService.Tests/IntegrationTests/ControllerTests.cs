@@ -21,11 +21,11 @@ namespace CreditService.Tests.IntegrationTests
         public void Dispose() => _testScope.Dispose();
 
         [Theory]
-        [InlineData(2000, 0.3)]
-        [InlineData(2200, 0.3)]
-        [InlineData(30000, 0.4)]
-        [InlineData(50000, 0.5)]
-        [InlineData(69000, 0.6)]
+        [InlineData(2000, .03)]
+        [InlineData(2200, .03)]
+        [InlineData(30000, .04)]
+        [InlineData(50000, .05)]
+        [InlineData(69000, .06)]
         public async void Should_AcceptCredit_InTheValidRange(int amount, float interest)
         {
             var request = new ApplyForCreditRequest();
