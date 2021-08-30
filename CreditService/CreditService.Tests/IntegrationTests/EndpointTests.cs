@@ -1,11 +1,11 @@
+using System.Net;
+using System.Threading.Tasks;
 using CreditService.WebApi;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
-using System.Net;
-using System.Threading.Tasks;
 using Xunit;
 
-namespace CreditService.Tests
+namespace CreditService.Tests.IntegrationTests
 {
     public class EndpointTests : IClassFixture<WebApplicationFactory<Startup>>
     {

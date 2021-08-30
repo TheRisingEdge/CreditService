@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using CSharpFunctionalExtensions;
+using Microsoft.AspNetCore.Mvc;
 
-namespace CreditService.WebApi.Controllers
+namespace CreditService.WebApi.Extensions
 {
     public static class HttpExtensions
     {

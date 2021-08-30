@@ -1,4 +1,4 @@
-﻿namespace CreditService.Domain
+﻿namespace CreditService.Domain.CreditDecisionMaker
 {
     public sealed class CreditDecisionMaker
     {

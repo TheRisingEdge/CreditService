@@ -1,15 +1,15 @@
-﻿using CreditService.Application;
+﻿using CreditService.Application.ApplyForCredit;
 using CreditService.WebApi.Controllers;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace CreditService.Tests
+namespace CreditService.Tests.IntegrationTests
 {
     public class ControllerTests : IClassFixture<TestableServices>
     {
-        private IServiceScope _testScope;
-        private CreditDecisionController _controller;
+        private readonly IServiceScope _testScope;
+        private readonly CreditDecisionController _controller;
 
         public ControllerTests(TestableServices testableServices)
         {
@@ -32,7 +32,7 @@ namespace CreditService.Tests
                 .ExpectingOK<ApplyForCreditResponse>();
 
             decision.IsSuccessful.Should().BeTrue();
-            decision.InterestRate.Value.Should().Be(interest);
+            decision.InterestRate.Should().Be(interest);
             decision.RejectionReason.Should().BeNull();
         }
 

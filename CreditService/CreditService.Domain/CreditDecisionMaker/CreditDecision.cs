@@ -1,6 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace CreditService.Domain
+namespace CreditService.Domain.CreditDecisionMaker
 {
     public struct CreditDecision
     {

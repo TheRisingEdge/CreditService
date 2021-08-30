@@ -1,7 +1,7 @@
-﻿using CreditService.Domain;
+﻿using CreditService.Domain.CreditDecisionMaker;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CreditService.WebApi
+namespace CreditService.WebApi.Extensions
 {
     public static class DomainServiceExtensions
     {

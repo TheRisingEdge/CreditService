@@ -1,7 +1,7 @@
-﻿using CreditService.WebApi;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using CreditService.Application;
 using CreditService.WebApi.Controllers;
+using CreditService.WebApi.Extensions;
 using MediatR;
 
 namespace CreditService.Tests

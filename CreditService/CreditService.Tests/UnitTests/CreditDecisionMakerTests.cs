@@ -1,8 +1,9 @@
 ﻿using CreditService.Domain;
+using CreditService.Domain.CreditDecisionMaker;
 using FluentAssertions;
 using Xunit;
 
-namespace CreditService.Tests
+namespace CreditService.Tests.UnitTests
 {
     public class CreditDecisionMakerTests
     {

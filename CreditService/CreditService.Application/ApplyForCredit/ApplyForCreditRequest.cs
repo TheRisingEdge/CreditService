@@ -1,7 +1,7 @@
-﻿using MediatR;
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
+using MediatR;
 
-namespace CreditService.Application
+namespace CreditService.Application.ApplyForCredit
 {
     public class ApplyForCreditRequest : IRequest<Result<ApplyForCreditResponse>>
     {

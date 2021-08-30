@@ -1,7 +1,8 @@
-﻿using CSharpFunctionalExtensions;
-using CreditService.Domain;
+﻿using CreditService.Domain;
+using CreditService.Domain.CreditDecisionMaker;
+using CSharpFunctionalExtensions;
 
-namespace CreditService.Application
+namespace CreditService.Application.ApplyForCredit
 {
     public class ApplyForCreditResponse
     {

@@ -1,7 +1,8 @@
-﻿using CreditService.Application;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using CreditService.Application.ApplyForCredit;
+using CreditService.WebApi.Extensions;
 
 namespace CreditService.WebApi.Controllers
 {

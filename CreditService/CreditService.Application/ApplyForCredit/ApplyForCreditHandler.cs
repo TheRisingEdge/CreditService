@@ -1,10 +1,11 @@
-﻿using MediatR;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using CSharpFunctionalExtensions;
 using CreditService.Domain;
+using CreditService.Domain.CreditDecisionMaker;
+using CSharpFunctionalExtensions;
+using MediatR;
 
-namespace CreditService.Application
+namespace CreditService.Application.ApplyForCredit
 {
     public class ApplyForCreditHandler : IRequestHandler<ApplyForCreditRequest, Result<ApplyForCreditResponse>>
     {
